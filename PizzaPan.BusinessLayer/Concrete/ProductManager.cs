@@ -32,6 +32,11 @@ namespace PizzaPan.BusinessLayer.Concrete
             return _productDAL.GetList();
         }
 
+        public List<Product> TGetProductsWithCategory()
+        {
+            return _productDAL.GetProductsWithCategory();
+        }
+
         public void TInsert(Product t)
         {
             _productDAL.Insert(t);

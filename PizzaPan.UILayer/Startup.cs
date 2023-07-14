@@ -34,6 +34,10 @@ namespace PizzaPan.UILayer
             services.AddScoped<ICategoryDAL, EFCategoryDAL>();
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDAL, EFProductDAL>();
+            services.AddScoped<IContactService, ContactManager>();
+            services.AddScoped<IContactDAL, EFContactDAL>();
+            services.AddScoped<IDiscountService, DiscountManager>();
+            services.AddScoped<IDiscountDAL, EFDiscountDAL>();
             services.AddHttpContextAccessor();
             services.AddControllersWithViews();
                      

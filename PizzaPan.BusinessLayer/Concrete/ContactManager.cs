@@ -27,6 +27,11 @@ namespace PizzaPan.BusinessLayer.Concrete
             return _contactDAL.GetByID(id);
         }
 
+        public List<Contact> TGetContactBySubjectWithTesekkur()
+        {
+            return _contactDAL.GetContactBySubjectWithTesekkur();
+        }
+
         public List<Contact> TGetList()
         {
             return _contactDAL.GetList();

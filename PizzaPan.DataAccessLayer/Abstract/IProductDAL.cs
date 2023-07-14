@@ -9,6 +9,6 @@ namespace PizzaPan.DataAccessLayer.Abstract
 {
     public interface IProductDAL : IGenericDAL<Product>
     {
-
+        public List<Product> GetProductsWithCategory();
     }
 }

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PizzaPan.EntityLayer.Concrete.Discount>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>İndirim Kodları</h1>
+
+<p>
+    <a asp-action="CreateCode">Yeni Kod Olurştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiscountCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpireDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.ExpireDate < DateTime.Now)
+            {
+                <tr style="background-color:rgba(250,10,0, 0.5);">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiscountID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiscountCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpireDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UseCount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiscountID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiscountCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpireDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UseCount)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace PizzaPan.DataAccessLayer.Abstract
 {
-    public interface IContactDAL:IGenericDAL<Contact>
+    public interface IContactDAL : IGenericDAL<Contact>
     {
+        List<Contact> GetContactBySubjectWithTesekkur();
     }
 }

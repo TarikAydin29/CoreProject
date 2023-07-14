@@ -61,6 +61,30 @@ namespace PizzaPan.DataAccessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("PizzaPan.EntityLayer.Concrete.Discount", b =>
+                {
+                    b.Property<int>("DiscountID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DiscountCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UseCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("DiscountID");
+
+                    b.ToTable("Discounts");
+                });
+
             modelBuilder.Entity("PizzaPan.EntityLayer.Concrete.Product", b =>
                 {
                     b.Property<int>("ProductID")

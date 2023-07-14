@@ -19,27 +19,27 @@ namespace PizzaPan.BusinessLayer.Concrete
         }
         public void TDelete(Testimonial t)
         {
-            throw new NotImplementedException();
+            _testimonialDAL.Delete(t);
         }
 
         public Testimonial TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _testimonialDAL.GetByID(id);
         }
 
         public List<Testimonial> TGetList()
         {
-            throw new NotImplementedException();
+            return _testimonialDAL.GetList();
         }
 
         public void TInsert(Testimonial t)
         {
-            throw new NotImplementedException();
+            _testimonialDAL.Insert(t);
         }
 
         public void TUpdate(Testimonial t)
         {
-            throw new NotImplementedException();
+            _testimonialDAL.Update(t);
         }
     }
 }
