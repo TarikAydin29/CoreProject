@@ -10,6 +10,7 @@ using PizzaPan.DataAccessLayer.Abstract;
 using PizzaPan.DataAccessLayer.Concrete;
 using PizzaPan.DataAccessLayer.EntityFramework;
 using PizzaPan.DataAccessLayer.Repositories;
+using PizzaPan.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,8 +40,10 @@ namespace PizzaPan.UILayer
             services.AddScoped<IDiscountService, DiscountManager>();
             services.AddScoped<IDiscountDAL, EFDiscountDAL>();
             services.AddHttpContextAccessor();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews();
-                     
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,6 +76,6 @@ namespace PizzaPan.UILayer
             });
         }
 
-       
+
     }
 }

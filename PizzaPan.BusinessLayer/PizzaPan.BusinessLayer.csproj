@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\PizzaPan.DataAccessLayer\PizzaPan.DataAccessLayer.csproj" />
   </ItemGroup>
 
