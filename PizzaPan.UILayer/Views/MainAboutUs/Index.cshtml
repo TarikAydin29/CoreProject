@@ -1,0 +1,157 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a asp-controller="Default" asp-action="Index">Ana Sayfa</a></li>
+            <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span>Hakkında</li>
+        </ul>
+    </div>
+</section>
+
+<!--  Intro video popup section -->
+<section class="w3l-about1 py-5" id="intro">
+    <div class="new-block top-bottom py-lg-5 py-md-4">
+        <div class="container">
+            <div class="title-content text-center">
+                <h3 class="title-big">Biz Kimiz</h3>
+            </div>
+            <div class="row mt-lg-5 mt-4">
+                <div class="col-md-3 left-section">
+                </div>
+                <div class="col-md-6 middle-section text-center align-self">
+                    <div class="section-width mb-lg-4 py-4">
+                        <h2>Dünyadaki En İyi Pizza Ve Hamburger Bir Adım Ötenizde</h2>
+
+                    </div>
+                    <a href="#small-dialog" class="popup-with-zoom-anim play-view text-center">
+                        <span class="video-play-icon">
+                            <span class="fa fa-play"></span>
+                        </span>
+                    </a>
+
+                    <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
+                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+                        <iframe src="https://www.youtube.com/embed/oWP9Riq-ZBg" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-3 right-section mt-md-0 mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--  //Intro video popup section -->
+<!--  form-12 -->
+<section class="w3l-form-12">
+    <div class="form-12-content py-5" id="services">
+        <div class="container py-lg-5 py-md-4">
+            <div class="row">
+                <div class="col-lg-4 column1 align-self">
+                    <h4>Şehrinizdeki En İyi Pizza Ve Hamburgeri Biz Yapıyoruz</h4>
+                </div>
+                <div class="col-lg-8 column2 mt-lg-0 mt-sm-5 mt-4">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-6">
+                            <a asp-controller="MainMenu" asp-action="Index">
+                                <div class="courses-item">
+                                    <img src="/pizzapan-starter/assets/images/pizza.png" alt="">
+                                    <p>Pizza</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-6">
+                            <a asp-controller="MainMenu" asp-action="Index">
+                                <div class="courses-item">
+                                    <img src="/pizzapan-starter/assets/images/burger.png" alt="">
+                                    <p>Hamburger</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-6 mt-md-0 mt-sm-4 mt-3">
+                            <a asp-controller="MainMenu" asp-action="Index">
+                                <div class="courses-item">
+                                    <img src="/pizzapan-starter/assets/images/fries.png" alt="">
+                                    <p>Patates</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-6 mt-md-0 mt-sm-4 mt-3">
+                            <a asp-controller="MainMenu" asp-action="Index">
+                                <div class="courses-item">
+                                    <img src="/pizzapan-starter/assets/images/drink.png" alt="">
+                                    <p>Soğuk İçecekler</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- // form-12 -->
+<!-- team -->
+@await Component.InvokeAsync("_OurteamPartial");
+<!-- //team -->
+<!-- stats -->
+<section class="w3_stats py-5" id="stats">
+    <div class="container py-lg-5 py-md-4">
+        <div class="title-content text-center">
+            <h3 class="title-big">Neden En İyisiyiz</h3>
+        </div>
+        <div class="w3-stats">
+            <div class="row">
+                <div class="col-sm-4 col-4">
+                    <div class="counter">
+                        <span class="fa fa-smile-o"></span>
+                        <div class="timer count-title count-number mt-3" data-to="5100" data-speed="1500"></div>
+                        <p class="count-text ">Mutlu Müşteriler</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-4">
+                    <div class="counter">
+                        <span class="fa fa-users"></span>
+                        <div class="timer count-title count-number mt-3" data-to="23" data-speed="1500"></div>
+                        <p class="count-text ">Usta Şefler</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //stats -->
+<!-- features -->
+<section class="w3l-reasons py-5">
+    <div class="main-w3 py-lg-5 py-md-4">
+        <div class="container">
+            <div class="title-content text-center">
+                <h3 class="title-big">Bizi Seçmeniz İçin 4 Neden</h3>
+            </div>
+            <div class="row main-cont-wthree-fea mt-5 text-center">
+                <div class="col-lg-3 col-sm-6 grids-feature">
+                    <a href="#url" class="icon"><img src="/pizzapan-starter/assets/images/pizza.png" alt=""></a>
+                    <h4><a href="#feature" class="title-head">En İyi Pizza</a></h4>
+                </div>
+                <div class="col-lg-3 col-sm-6 grids-feature mt-sm-0 mt-5">
+                    <a href="#url" class="icon"><img src="/pizzapan-starter/assets/images/burger.png" alt=""></a>
+                    <h4><a href="#feature" class="title-head">Kaliteli Ürünler</a></h4>
+                </div>
+                <div class="col-lg-3 col-sm-6 grids-feature mt-lg-0 mt-sm-5 mt-5">
+                    <a href="#url" class="icon"><img src="/pizzapan-starter/assets/images/drink.png" alt=""></a>
+                    <h4><a href="#feature" class="title-head">Dünyanın En İyi Şefleri</a></h4>
+                </div>
+                <div class="col-lg-3 col-sm-6 grids-feature mt-lg-0 mt-sm-5 mt-5">
+                    <a href="#url" class="icon"><img src="/pizzapan-starter/assets/images/fries.png" alt=""></a>
+                    <h4><a href="#feature" class="title-head">Hızlı Teslimat</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -11,10 +11,19 @@ using PizzaPan.DataAccessLayer.Concrete;
 using PizzaPan.DataAccessLayer.EntityFramework;
 using PizzaPan.DataAccessLayer.Repositories;
 using PizzaPan.EntityLayer.Concrete;
+using PizzaPan.UILayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Apis.Drive.v3;
+using Google.Apis.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.Google;
+
+using Google.Apis.Auth.AspNetCore3;
+using System.Net.Http;
+using Google.Apis.Auth.OAuth2;
 
 namespace PizzaPan.UILayer
 {
@@ -39,9 +48,49 @@ namespace PizzaPan.UILayer
             services.AddScoped<IContactDAL, EFContactDAL>();
             services.AddScoped<IDiscountService, DiscountManager>();
             services.AddScoped<IDiscountDAL, EFDiscountDAL>();
+            services.AddScoped<IProductImageService, ProductImageManager>();
+            services.AddScoped<IProductImageDAL, EFProductImageDAL>();
+            services.AddScoped<ITestimonialService, TestimonialManager>();
+            services.AddScoped<ITestimonialDAL, EFTestimonialDAL>();
+            services.AddScoped<IOurTeamService, OurTeamManager>();
+            services.AddScoped<IOurTeamDAL, EFOurTeamDAL>();
+
+
             services.AddHttpContextAccessor();
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
             services.AddControllersWithViews();
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+            //})
+            //    .AddGoogle(options =>
+            //    {
+            //        options.ClientId = Configuration["107674379567-jjtghh81b33vg3693qr4610kbrlo3sii.apps.googleusercontent.com"];
+            //        options.ClientSecret = Configuration["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"];
+            //    });
+
+
+            //services.AddHttpClient();
+            //services.AddScoped<DriveService>(provider =>
+            //{
+            //    var httpClientFactory = provider.GetRequiredService<IHttpClientFactory>();
+
+            //    // Replace "your-service-account-key.json" with the path to your Google service account key JSON file
+            //    var googleCredential = GoogleCredential.FromFile("a4e67a8b17f5e2506f3134071a430403f28db4ee")
+            //                                          .CreateScoped(DriveService.Scope.Drive);
+
+            //    var initializer = new BaseClientService.Initializer()
+            //    {
+            //        HttpClientInitializer = googleCredential,
+            //        ApplicationName = "PizzaPanDriveClient" // Replace with your application's name
+            //    };
+
+            //    var service = new DriveService(initializer);
+
+            //    return service;
+            //});
+
 
 
         }
@@ -65,14 +114,14 @@ namespace PizzaPan.UILayer
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Default}/{action=Index}/{id?}");
             });
         }
 

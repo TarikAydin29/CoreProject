@@ -24,13 +24,13 @@
             </div>
             <div class="img bg-wrap text-center py-4" style="background-image: url(/sidebar-09/images/bg_1.jpg);">
                 <div class="user-logo">
-                    <div class="img" style="background-image: url(/sidebar-09/images/logo.jpg);"></div>
+                    <div class="img" style="background-image: url(/pizzapan-starter/assets/images/pizza.png);"></div>
                     <h3>PizzaPan Admin</h3>
                 </div>
             </div>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="#"><span class="fa fa-home mr-3"></span> Dashboard</a>
+                    <a asp-controller="Admin" asp-action="Index"><span class="fa fa-home mr-3"></span> Dashboard</a>
                 </li>
                 <li>
                     <a asp-area="" asp-controller="Category" asp-action="Index"><span class="fa fa-gift mr-3"></span>Kategoriler</a>
@@ -39,31 +39,25 @@
                     <a asp-area="" asp-controller="Discount" asp-action="Index"><span class="fa fa-gift mr-3"></span>İndirim Kodu</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-trophy mr-3"></span> Müşteriler</a>
+                    <a asp-area="" asp-controller="Product" asp-action="Index"><span class="fa fa-gift mr-3"></span>Mevcut Ürünler</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Product" asp-action="Index"><span class="fa fa-gift mr-3"></span>Ürünler</a>                   
+                    <a asp-area="" asp-controller="Contact" asp-action="Index"><span class="fa fa-gift mr-3"></span>Mesajlar</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa fa-info mr-3"></span> Referanslar</a>
+                    <a asp-area="" asp-controller="ProductImage" asp-action="ImageList"><span class="fa fa-photo mr-3"></span>Ürün Resimleri</a>
                 </li>
                 <li>
-                    <a asp-area="" asp-controller="Contact" asp-action="Index"><span class="fa fa-info   mr-3"></span>Mesajlar</a>
+                    <a asp-controller="OurTeam" asp-action="Index"><span class="fa fa-support mr-3"></span> Personeller</a>
                 </li>
-                <li>
-                    <a href="#"><span class="fa fa-support mr-3"></span> Galeri</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa fa-support mr-3"></span> Personeller</a>
-                </li>
-                <li>
+               @* <li>
                     <a href="#"><span class="fa fa-support mr-3"></span> İstatistikler</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa fa-support mr-3"></span> Ayarlar</a>
-                </li>
+                </li>*@
                 <li>
-                    <a href="#"><span class="fa fa-sign-out mr-3"></span> Çıkış Yap</a>
+                    <a asp-controller="Login" asp-action="Logout"><span class="fa fa-sign-out mr-3"></span> Çıkış Yap</a>
                 </li>
             </ul>
 

@@ -29,8 +29,10 @@
                 <input asp-for="Price" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="CategoryID" class="control-label"></label>
-                <input asp-for="CategoryID" class="form-control" />
+                <select asp-for="CategoryID" asp-items="@ViewBag.CategorySelect" class="btn btn-outline-warning dropdown-toggle">
+                    <option value="">Kategori Seçiniz</option>
+                </select>
+                <span class="text-danger" asp-validation-for="CategoryID"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Kaydet" class="btn btn-primary" />

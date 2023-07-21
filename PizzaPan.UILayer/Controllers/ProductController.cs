@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using PizzaPan.BusinessLayer.Abstract;
+using PizzaPan.DataAccessLayer.Concrete;
 using PizzaPan.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,13 @@ namespace PizzaPan.UILayer.Controllers
     {
         private readonly IProductService productService;
         private readonly IWebHostEnvironment _webHostEnvironment;
- 
+        private readonly ICategoryService categoryService;
 
-        public ProductController(IProductService productService, IWebHostEnvironment webHostEnvironment)
+        public ProductController(IProductService productService, IWebHostEnvironment webHostEnvironment,ICategoryService categoryService)
         {
             this.productService = productService;
-            _webHostEnvironment = webHostEnvironment;         
+            _webHostEnvironment = webHostEnvironment;
+            this.categoryService = categoryService;
         }
         const string SessionPhoto = "photo";
 
@@ -33,6 +35,8 @@ namespace PizzaPan.UILayer.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            var categories = categoryService.TGetList();
+            ViewBag.categorySelect = new SelectList(categories, "CategoryID", "Name");
             return View();
         }
         [HttpPost]

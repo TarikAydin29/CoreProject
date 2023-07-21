@@ -1,0 +1,23 @@
+﻿@model UserEditVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Profil Sayfası</h1>
+
+<form method="post">
+    <label>Kullanıcı Adı</label>
+    <input type="text" class="form-control mb-2" asp-for="Username" readonly />
+    <label>Ad</label>
+    <input type="text" class="form-control mb-2" asp-for="Name" />
+    <label>Soyad</label>
+    <input type="text" class="form-control mb-2" asp-for="Surname" />
+    <label>Şehir</label>
+    <input type="text" class="form-control mb-2" asp-for="City" />
+    <label>Email Adresiniz</label>
+    <input type="email" class="form-control mb-2" asp-for="Email" />
+    <label>Şifreniz</label>
+    <input type="password" class="form-control mb-2" asp-for="Password" />
+    <button class="btn btn-outline-warning" type="submit">Bilgileri Güncelle</button>
+</form>

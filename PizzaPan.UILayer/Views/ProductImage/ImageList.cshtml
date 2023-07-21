@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PizzaPan.EntityLayer.Concrete.ProductImage>
+
+@{
+    ViewData["Title"] = "ImageList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>ImageList</h1>
+
+<p>
+    <a asp-action="Index">Ürün Resmi Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImageID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductImageID)
+                </td>
+                <td>
+                    <img title="@Html.DisplayFor(modelItem=>item.ProductImageID)" style="height:80px;width:80px; border-radius:50%" src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="@Html.DisplayFor(modelItem=>item.ProductImageID)">
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Index", new { id=item.ProductImageID }) |                   
+                    @Html.ActionLink("Sil", "Delete", new {  id=item.ProductImageID})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

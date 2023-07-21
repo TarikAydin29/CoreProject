@@ -1,0 +1,28 @@
+﻿@model ProductImage
+@{
+    ViewData["Title"] = "Ürün Resmi Ekleme Sayfası";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Ürün Resmi Ekleme</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <img id="output" title="@Html.DisplayFor(modelItem=>modelItem.ImageUrl)" style="border-radius: 50%; height:250px;width:250px" src="@Html.DisplayFor(modelItem => modelItem.ImageUrl)">
+
+    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;" asp-for="ImageUrl"></p>
+
+    <label for="file" style="border-radius: 25px; margin-top: 5%" class="btn palette-Orange bg btn-lg w-100">
+        <a>
+       
+            <span class="btn btn-outline-warning">Profil Resmini Güncelle</span>
+        </a>
+    </label>
+    <button type="submit" class="btn btn-outline-danger">Kaydet</button>
+
+</form>
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
